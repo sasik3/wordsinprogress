@@ -1,0 +1,10 @@
+{
+  "name": "words in progress",
+  "description": "Track your progress with your writing!",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions" : ["tabs"],
+  "action": {
+    "default_popup": "home.html"
+  }
+}
