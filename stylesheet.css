@@ -1,0 +1,13 @@
+#progressBackground {
+  fill: none;
+  stroke: #e5e7eb;
+  stroke-width: 12;
+}
+
+#progressBar {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 12;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease;
+}
