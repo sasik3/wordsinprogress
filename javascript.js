@@ -40,6 +40,8 @@ chrome.storage.local.get(
     (data) => {
         currentWords = data.currentWords || 0;
         goalWords = data.goal || 1000;
+        wordInput.value = currentWords;
+        goalInput.value = goalWords;
         updateUI();
     }
 );
