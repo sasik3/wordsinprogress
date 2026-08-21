@@ -15,7 +15,7 @@ progressBar.style.strokeDashoffset= pathLength;
 function updateUI() {
     wordCount.textContent = currentWords;
     const progress = Math.min(currentWords/goalWords, 1);
-    const percent = progress * 100;
+    const percent = Math.round(progress * 100);
     percentage.textContent = `${percent}%`;
     const offset = pathLength * (1- progress);
     progressBar.style.strokeDashoffset = offset;

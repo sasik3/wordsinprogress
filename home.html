@@ -1,12 +1,11 @@
 <html>
   <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel = "stylesheet" href = "stylesheet.css">
     </head>
     <body>
-    <div class="stats">
-  <div id="wordCount">0</div>
-  <div>words</div>
-</div>
 <div class="progress">
   <svg viewBox="0 0 200 110">
     <path
@@ -17,6 +16,11 @@
       d="M 20 100 A 80 80 0 0 1 180 100" />
   </svg>
 </div>
+<div id="percentage">0%</div>
+  <div class="stats">
+  <p id="wordCount">0</p>
+  <p>words</p>
+  </div>
 <div>
   <input id="wordInput" type="number" placeholder="Current words">
   <button id="updateWords">Update</button>
@@ -25,7 +29,6 @@
   <input id="goalInput" type="number" placeholder="Goal">
   <button id="updateGoal">Update goal</button>
 </div>
-<div id="percentage">0%</div>
 </body>
 <script src = "javascript.js" ></script>
 </html>
