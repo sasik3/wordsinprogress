@@ -11,6 +11,20 @@ const progressBar = document.getElementById("progressBar");
 const pathLength = progressBar.getTotalLength();
 progressBar.style.strokeDasharray = pathLength;
 progressBar.style.strokeDashoffset= pathLength;
+let i = 0;
+   var message = "words in progress."; 
+   var speed = 100;
+   function type() {
+    if(i < message.length) {
+        document.getElementById("type").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(type, speed);
+    }
+   }
+    type();
+
+
+
 
 function updateUI() {
     wordCount.textContent = currentWords;

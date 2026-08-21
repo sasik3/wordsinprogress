@@ -27,10 +27,21 @@ body {
 }
 button {
   font-family: 'Nunito';
+  color: #ffffff;
+  background-color: #000000;
+  border-radius: 6px;
+  border: none;
 }
 .stats {
   display: flex;
   align-items: baseline;
   margin: 2px; 
   text-align: center;
+}
+p {
+  font-family: 'Nunito';
+}
+#type {
+  text-align: center;
+  color: #000000;
 }
