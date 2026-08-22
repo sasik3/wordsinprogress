@@ -13,7 +13,7 @@
 #percentage {
   font-size: 45px;
   text-align: center;
-  font-family: 'Nunito';
+  font-family: 'Montserrat';
   transform: translateY(-66px);
 }
 #wordcount {
@@ -47,7 +47,7 @@ button:hover {
   text-align: center;
 }
 p {
-  font-family: 'Nunito';
+  font-family: 'Roboto Mono';
 }
 #type {
   text-align: center;
