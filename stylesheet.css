@@ -16,7 +16,7 @@
   font-family: 'Nunito';
   transform: translateY(-66px);
 }
-#wordcount {
+#wordCount {
   font-size: 15px;
   text-align: center;
   font-family: 'Nunito';
@@ -68,7 +68,7 @@ p {
   padding: 12px 14px;
   border: 2px solid #dedbd7;
   border-radius: 10px;
-  background: ffffff;
+  background: #ffffff;
   font-family: "Nunito", sans-serif;
   font-size: 15px;
   transition: border-color 0.2s, box-shadow 0.2s;
