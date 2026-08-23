@@ -13,7 +13,7 @@
 #percentage {
   font-size: 45px;
   text-align: center;
-  font-family: 'Montserrat';
+  font-family: 'Nunito';
   transform: translateY(-66px);
 }
 #wordcount {
@@ -47,9 +47,46 @@ button:hover {
   text-align: center;
 }
 p {
-  font-family: 'Roboto Mono';
+  font-family: 'Nunito';
 }
 #type {
   text-align: center;
   color: #000000;
+}
+.inputGroup {
+  width: 360px;
+  max-width: 100%;
+
+  display: flex;
+  gap: 10px;
+
+  margin-bottom: 12px;
+}
+
+.inputGroup input {
+  min-width: 0;
+  padding: 12px 14px;
+  border: 2px solid #dedbd7;
+  border-radius: 10px;
+  background: ffffff;
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.inputGroup button {
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #000000;
+  font-family: 'Nunito';
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.inputGroup button:hover {
+  background: #000000;
+  color:#ffffff;
+}
+
+.inputGroup button:active {
+  transform: scale(0.97);
 }
