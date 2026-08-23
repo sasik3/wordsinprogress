@@ -43,6 +43,8 @@ button:hover {
 .stats {
   display: flex;
   align-items: baseline;
+  justify-content: center;
+  gap: 6px;
   margin: 2px; 
   text-align: center;
 }
@@ -62,7 +64,6 @@ p {
 
   margin-bottom: 12px;
 }
-
 .inputGroup input {
   min-width: 0;
   padding: 12px 14px;
@@ -81,12 +82,32 @@ p {
   font-size: 14px;
   font-weight: 700;
 }
-
 .inputGroup button:hover {
   background: #000000;
   color:#ffffff;
 }
-
 .inputGroup button:active {
   transform: scale(0.97);
+}
+.navLink {
+  display: inline-block;
+  font-family: 'Nunito';
+  font-weight: 700;
+  color: #000000;
+  text-decoration: none;
+  margin: 12px;
+}
+.navLink:hover {
+  text-decoration: underline;
+}
+.navLink2 {
+  display: inline-block;
+  font-family: 'Nunito';
+  font-weight: 700;
+  color: #000000;
+  text-decoration: none;
+  margin: 12px;
+}
+.navLink2:hover {
+  text-decoration: underline;
 }
