@@ -1,9 +1,16 @@
 const STORAGE_KEY = "worksInProgress";
+const FUTURE_KEY = "futureWorks";
 function getWips() {
   return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
 }
 function saveWips(wips) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(wips));
+}
+function getFutures() {
+  return JSON.parse(localStorage.getItem(FUTURE_KEY) || "[]");
+}
+function saveFutures(futures) {
+  localStorage.setItem(FUTURE_KEY, JSON.stringify(futures));
 }
 function render() {
   const wips = getWips();
@@ -25,7 +32,7 @@ function render() {
     `;
     list.appendChild(card);
   });
-  document.querySelectorAll(".deleteBtn").forEach(btn => {
+  list.querySelectorAll(".deleteBtn").forEach(btn => {
     btn.addEventListener("click", (e) => {
       const wips = getWips();
       wips.splice(Number(e.target.dataset.index), 1);
@@ -47,5 +54,38 @@ document.getElementById("addWip").addEventListener("click", () => {
   document.getElementById("wipGoal").value = "";
   render();
 });
-
+function renderFuture() {
+  const futures = getFutures();
+  const list = document.getElementById("futureList");
+  list.innerHTML = "";
+  futures.forEach((item, index) => {
+    const card = document.createElement("div");
+    card.className = "wipCard";
+    card.innerHTML = `
+      <div class="wipHeader">
+        <span class="wipName">${item.title}</span>
+        <button class="deleteBtn" data-index="${index}">✕</button>
+      </div>
+    `;
+    list.appendChild(card);
+  });
+  list.querySelectorAll(".deleteBtn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const futures = getFutures();
+      futures.splice(Number(e.target.dataset.index), 1);
+      saveFutures(futures);
+      renderFuture();
+    });
+  });
+}
+document.getElementById("addFuture").addEventListener("click", () => {
+  const title = document.getElementById("futureTitleInput").value.trim();
+  if (!title) return;
+  const futures = getFutures();
+  futures.push({ title });
+  saveFutures(futures);
+  document.getElementById("futureTitleInput").value = "";
+  renderFuture();
+});
 render();
+renderFuture();
