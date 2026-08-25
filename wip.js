@@ -1,5 +1,7 @@
 const STORAGE_KEY = "worksInProgress";
 const FUTURE_KEY = "futureWorks";
+const PAST_KEY = "pastWorks";
+
 function getWips() {
   return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
 }
@@ -12,6 +14,13 @@ function getFutures() {
 function saveFutures(futures) {
   localStorage.setItem(FUTURE_KEY, JSON.stringify(futures));
 }
+function getPasts() {
+  return JSON.parse(localStorage.getItem(PAST_KEY) || "[]");
+}
+function savePasts(pasts) {
+  localStorage.setItem(PAST_KEY, JSON.stringify(pasts));
+}
+
 function render() {
   const wips = getWips();
   const list = document.getElementById("wipList");
@@ -41,6 +50,7 @@ function render() {
     });
   });
 }
+
 document.getElementById("addWip").addEventListener("click", () => {
   const title = document.getElementById("titleInput").value.trim();
   const words = Number(document.getElementById("wipWords").value) || 0;
@@ -54,6 +64,7 @@ document.getElementById("addWip").addEventListener("click", () => {
   document.getElementById("wipGoal").value = "";
   render();
 });
+
 function renderFuture() {
   const futures = getFutures();
   const list = document.getElementById("futureList");
@@ -78,6 +89,7 @@ function renderFuture() {
     });
   });
 }
+
 document.getElementById("addFuture").addEventListener("click", () => {
   const title = document.getElementById("futureTitleInput").value.trim();
   if (!title) return;
@@ -87,5 +99,45 @@ document.getElementById("addFuture").addEventListener("click", () => {
   document.getElementById("futureTitleInput").value = "";
   renderFuture();
 });
+
+function renderPast() {
+  const pasts = getPasts();
+  const list = document.getElementById("pastList");
+  list.innerHTML = "";
+  pasts.forEach((item, index) => {
+    const card = document.createElement("div");
+    card.className = "wipCard";
+    card.innerHTML = `
+      <div class="wipHeader">
+        <span class="wipName">${item.title}</span>
+        <button class="deleteBtn" data-index="${index}">X</button>
+      </div>
+      <div class="wipStats">${item.words} words total</div>
+    `;
+    list.appendChild(card);
+  });
+  list.querySelectorAll(".deleteBtn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const pasts = getPasts();
+      pasts.splice(Number(e.target.dataset.index), 1);
+      savePasts(pasts);
+      renderPast();
+    });
+  });
+}
+
+document.getElementById("addPast").addEventListener("click", () => {
+  const title = document.getElementById("pastTitleInput").value.trim();
+  const words = Number(document.getElementById("pastWords").value) || 0;
+  if (!title) return;
+  const pasts = getPasts();
+  pasts.push({ title, words });
+  savePasts(pasts);
+  document.getElementById("pastTitleInput").value = "";
+  document.getElementById("pastWords").value = "";
+  renderPast();
+});
+
 render();
 renderFuture();
+renderPast();
