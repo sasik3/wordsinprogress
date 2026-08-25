@@ -23,7 +23,7 @@ function render() {
     card.innerHTML = `
       <div class="wipHeader">
         <span class="wipName">${wip.title}</span>
-        <button class="deleteBtn" data-index="${index}">✕</button>
+        <button class="deleteBtn" data-index="${index}">X</button>
       </div>
       <div class="wipBarTrack">
         <div class="wipBarFill" style="width:${pct}%"></div>
@@ -64,7 +64,7 @@ function renderFuture() {
     card.innerHTML = `
       <div class="wipHeader">
         <span class="wipName">${item.title}</span>
-        <button class="deleteBtn" data-index="${index}">✕</button>
+        <button class="deleteBtn" data-index="${index}">X</button>
       </div>
     `;
     list.appendChild(card);
