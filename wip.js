@@ -137,7 +137,60 @@ document.getElementById("addPast").addEventListener("click", () => {
   document.getElementById("pastWords").value = "";
   renderPast();
 });
+let goals = JSON.parse(localStorage.getItem('goals')) || [];
 
+function saveGoals() {
+  localStorage.setItem('goals', JSON.stringify(goals));
+}
+
+function renderGoals() {
+  const goalList = document.getElementById('goalList');
+  goalList.innerHTML = '';
+
+  goals.forEach((goal, index) => {
+    const card = document.createElement('div');
+    card.className = 'goalCard';
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.className = 'goalCheckbox';
+    checkbox.checked = goal.completed;
+    checkbox.addEventListener('change', () => {
+      goals[index].completed = checkbox.checked;
+      saveGoals();
+      renderGoals();
+    });
+
+    const text = document.createElement('span');
+    text.className = 'goalText' + (goal.completed ? ' completed' : '');
+    text.textContent = goal.text;
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.className = 'deleteBtn';
+    deleteBtn.textContent = 'X';
+    deleteBtn.addEventListener('click', () => {
+      goals.splice(index, 1);
+      saveGoals();
+      renderGoals();
+    });
+
+    card.appendChild(checkbox);
+    card.appendChild(text);
+    card.appendChild(deleteBtn);
+    goalList.appendChild(card);
+  });
+}
+document.getElementById('addGoal').addEventListener('click', () => {
+  const input = document.getElementById('goalInput');
+  const value = input.value.trim();
+  if (value === '') return;
+
+  goals.push({ text: value, completed: false });
+  saveGoals();
+  renderGoals();
+  input.value = '';
+});
 render();
 renderFuture();
 renderPast();
+renderGoals();
