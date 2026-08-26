@@ -5,6 +5,7 @@
   "manifest_version": 3,
   "permissions" : ["tabs", "storage"],
   "action": {
-    "default_popup": "home.html"
+    "default_popup": "home.html",
+    "default_icon": "wordsinprogresslogo.png"
   }
 }
