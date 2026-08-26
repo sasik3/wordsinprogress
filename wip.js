@@ -190,6 +190,11 @@ document.getElementById('addGoal').addEventListener('click', () => {
   renderGoals();
   input.value = '';
 });
+const notesArea = document.getElementById('notesArea');
+notesArea.value = localStorage.getItem('notes') || '';
+notesArea.addEventListener('input', () => {
+  localStorage.setItem('notes', notesArea.value);
+});
 render();
 renderFuture();
 renderPast();

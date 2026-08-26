@@ -103,3 +103,26 @@ h1 {
   text-decoration: line-through;
   color: #999999;
 }
+.notesWrapper {
+  width: 360px;
+  max-width: 100%;
+  margin: 0 auto 14px auto;
+}
+#notesArea {
+  width: 100%;
+  min-height: 220px;
+  padding: 14px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  background: #ffffff;
+  font-family: 'Nunito';
+  font-size: 15px;
+  color: #333;
+  resize: vertical;
+  box-sizing: border-box;
+  outline: none;
+  line-height: 1.5;
+}
+#notesArea:focus {
+  border-color: #000000;
+}
