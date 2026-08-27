@@ -101,13 +101,27 @@ p {
   text-decoration: underline;
 }
 .navLink2 {
-  display: inline-block;
+  display: block;
+  width: fit-content;
+  margin: 24px auto;
+  padding: 12px 28px;
   font-family: 'Nunito';
   font-weight: 700;
-  color: #000000;
+  font-size: 15px;
+  color: #ffffff;
+  background-color: #000000;
+  border: 2px solid #000000;
+  border-radius: 8px;
   text-decoration: none;
-  margin: 12px;
+  text-align: center;
+  letter-spacing: 0.3px;
+  transition: background-color 0.2s, color 0.2s, transform 0.1s;
 }
 .navLink2:hover {
-  text-decoration: underline;
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+}
+.navLink2:active {
+  transform: scale(0.97);
 }
