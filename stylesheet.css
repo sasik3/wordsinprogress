@@ -116,6 +116,7 @@ p {
   text-align: center;
   letter-spacing: 0.3px;
   transition: background-color 0.2s, color 0.2s, transform 0.1s;
+  
 }
 .navLink2:hover {
   background-color: #ffffff;

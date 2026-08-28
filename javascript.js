@@ -59,7 +59,11 @@ chrome.storage.local.get(
         updateUI();
     }
 );
-
+document.getElementById("navLink2").addEventListener("click", (e) => {
+  e.preventDefault();
+  chrome.tabs.create({ url: chrome.runtime.getURL("wip.html") });
+  window.close(); // closes the popup once the tab opens
+});
 
 /*const progressBar = document.getElementById("progressBar");
 const pathLength = progressBar.getTotalLength();
